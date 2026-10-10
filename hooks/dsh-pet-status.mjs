@@ -214,8 +214,8 @@ async function findPetBase() {
 
 function mapEvent(event, status) {
   switch (event) {
+    // Do NOT map sessionStart: it fires when a chat opens, before any real work.
     case 'beforeSubmitPrompt':
-    case 'sessionStart':
       return { anim: ANIM.thinking, text: TEXT.startThink, key: 'thinking', ms: 2500 };
     case 'afterAgentThought':
       return { anim: ANIM.thinking, text: TEXT.thinking, key: 'thought', ms: 4000 };

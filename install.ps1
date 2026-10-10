@@ -33,7 +33,7 @@ $command = "node $scriptPath"
 $marker = 'dsh-pet-status.mjs'
 
 $events = @(
-  'sessionStart',
+  # sessionStart intentionally omitted: fires on new chat open, not real thinking
   'beforeSubmitPrompt',
   'afterAgentThought',
   'preToolUse',
@@ -51,9 +51,11 @@ const fs = require("fs");
 const [hooksJson, command, marker, uninstallFlag] = process.argv.slice(2);
 const uninstall = uninstallFlag === "1";
 const events = [
-  "sessionStart","beforeSubmitPrompt","afterAgentThought","preToolUse","postToolUse",
+  "beforeSubmitPrompt","afterAgentThought","preToolUse","postToolUse",
   "postToolUseFailure","afterAgentResponse","beforeShellExecution","beforeMCPExecution","stop"
 ];
+// Also strip legacy sessionStart entries that mapped to "¿ªÊ¼Ë¼¿¼"
+const removeLegacy = ["sessionStart"];
 
 function asArray(v) {
   if (v == null) return [];
@@ -83,6 +85,16 @@ for (const ev of events) {
     if (ev === "beforeSubmitPrompt") entry.matcher = "UserPromptSubmit";
     kept.push(entry);
   }
+  if (kept.length) cfg.hooks[ev] = kept;
+  else delete cfg.hooks[ev];
+}
+
+// Remove this project's legacy sessionStart hook (keep other tools' sessionStart)
+for (const ev of removeLegacy) {
+  const kept = asArray(cfg.hooks[ev]).filter((item) => {
+    const cmd = String((item && item.command) || "");
+    return !cmd.includes(marker);
+  });
   if (kept.length) cfg.hooks[ev] = kept;
   else delete cfg.hooks[ev];
 }

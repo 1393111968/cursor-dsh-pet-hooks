@@ -1,12 +1,6 @@
 {
   "version": 1,
   "hooks": {
-    "sessionStart": [
-      {
-        "command": "node REPLACE_WITH_ABSOLUTE_PATH/hooks/dsh-pet-status.mjs",
-        "timeout": 5
-      }
-    ],
     "beforeSubmitPrompt": [
       {
         "command": "node REPLACE_WITH_ABSOLUTE_PATH/hooks/dsh-pet-status.mjs",

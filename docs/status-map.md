@@ -4,8 +4,8 @@
 
 | Hook 事件 | 动画名 | 气泡 |
 |---|---|---|
-| `sessionStart` | 工作状态-思考冒泡 | Cursor 开始思考 |
 | `beforeSubmitPrompt` | 工作状态-思考冒泡 | Cursor 开始思考 |
+| ~~`sessionStart`~~ | — | 已去除（新对话一开就触发，会误报「开始思考」） |
 | `afterAgentThought` | 工作状态-思考冒泡 | Cursor 正在思考 |
 | `preToolUse` | 工作状态-忙碌点按 | Cursor 正在干活 |
 | `postToolUse` | 工作状态-清点归档 | Cursor 整理结果 |

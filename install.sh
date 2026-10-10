@@ -45,7 +45,7 @@ hooks_json, command, marker, uninstall = sys.argv[1:5]
 uninstall = uninstall == "1"
 
 events = [
-    "sessionStart",
+    # sessionStart omitted: fires on new chat open, not real thinking
     "beforeSubmitPrompt",
     "afterAgentThought",
     "preToolUse",
@@ -56,6 +56,7 @@ events = [
     "beforeMCPExecution",
     "stop",
 ]
+remove_legacy = ["sessionStart"]
 
 cfg = {"version": 1, "hooks": {}}
 if os.path.exists(hooks_json):
@@ -79,6 +80,15 @@ for ev in events:
         if ev == "beforeSubmitPrompt":
             entry["matcher"] = "UserPromptSubmit"
         kept.append(entry)
+    if kept:
+        cfg["hooks"][ev] = kept
+    elif ev in cfg["hooks"]:
+        del cfg["hooks"][ev]
+
+# Strip this project's legacy sessionStart hook (keep other tools' sessionStart)
+for ev in remove_legacy:
+    old = cfg["hooks"].get(ev, []) or []
+    kept = [item for item in old if marker not in str(item.get("command", ""))]
     if kept:
         cfg["hooks"][ev] = kept
     elif ev in cfg["hooks"]:
