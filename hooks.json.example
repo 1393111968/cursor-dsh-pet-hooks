@@ -1,0 +1,66 @@
+{
+  "version": 1,
+  "hooks": {
+    "sessionStart": [
+      {
+        "command": "node REPLACE_WITH_ABSOLUTE_PATH/hooks/dsh-pet-status.mjs",
+        "timeout": 5
+      }
+    ],
+    "beforeSubmitPrompt": [
+      {
+        "command": "node REPLACE_WITH_ABSOLUTE_PATH/hooks/dsh-pet-status.mjs",
+        "matcher": "UserPromptSubmit",
+        "timeout": 5
+      }
+    ],
+    "afterAgentThought": [
+      {
+        "command": "node REPLACE_WITH_ABSOLUTE_PATH/hooks/dsh-pet-status.mjs",
+        "timeout": 5
+      }
+    ],
+    "preToolUse": [
+      {
+        "command": "node REPLACE_WITH_ABSOLUTE_PATH/hooks/dsh-pet-status.mjs",
+        "timeout": 5
+      }
+    ],
+    "postToolUse": [
+      {
+        "command": "node REPLACE_WITH_ABSOLUTE_PATH/hooks/dsh-pet-status.mjs",
+        "timeout": 5
+      }
+    ],
+    "postToolUseFailure": [
+      {
+        "command": "node REPLACE_WITH_ABSOLUTE_PATH/hooks/dsh-pet-status.mjs",
+        "timeout": 5
+      }
+    ],
+    "afterAgentResponse": [
+      {
+        "command": "node REPLACE_WITH_ABSOLUTE_PATH/hooks/dsh-pet-status.mjs",
+        "timeout": 5
+      }
+    ],
+    "beforeShellExecution": [
+      {
+        "command": "node REPLACE_WITH_ABSOLUTE_PATH/hooks/dsh-pet-status.mjs",
+        "timeout": 5
+      }
+    ],
+    "beforeMCPExecution": [
+      {
+        "command": "node REPLACE_WITH_ABSOLUTE_PATH/hooks/dsh-pet-status.mjs",
+        "timeout": 5
+      }
+    ],
+    "stop": [
+      {
+        "command": "node REPLACE_WITH_ABSOLUTE_PATH/hooks/dsh-pet-status.mjs",
+        "timeout": 5
+      }
+    ]
+  }
+}

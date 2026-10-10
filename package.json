@@ -1,0 +1,25 @@
+{
+  "name": "cursor-dsh-pet-hooks",
+  "version": "1.0.0",
+  "description": "Cursor Hooks bridge: mirror Agent status onto dsh-pet desktop pet via localhost HTTP API",
+  "private": true,
+  "type": "module",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "install:hooks": "node -e \"console.log('Use install.ps1 (Windows) or install.sh (macOS/Linux)')\"",
+    "test:demo": "node scripts/demo-states.mjs"
+  },
+  "keywords": [
+    "cursor",
+    "hooks",
+    "dsh-pet",
+    "desktop-pet"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/1393111968/cursor-dsh-pet-hooks.git"
+  }
+}
