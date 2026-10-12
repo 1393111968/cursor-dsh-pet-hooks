@@ -15,7 +15,7 @@ Cursor Hooks  →  dsh-pet-status.mjs  →  POST /anim + /broadcast  →  桌宠
 1. 先保证 [dsh-pet](https://github.com/PC2005-cloud/dsh-pet) 已在本机运行（独立模式默认端口 `3080`）
 2. 复制**本仓库地址**，粘贴发给你的 Cursor Agent，让它帮你安装
 
-可直接拷贝下面这段：
+可直接拷贝下面这段（把仓库链接换成你的）：
 
 ```text
 请帮我安装这个 Cursor + dsh-pet 状态联动仓库：
