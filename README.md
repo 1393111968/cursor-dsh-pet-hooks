@@ -173,12 +173,35 @@ cursor-dsh-pet-hooks/
 ├── hooks.json.example        # hooks 配置示例
 ├── hooks/
 │   └── dsh-pet-status.mjs    # Hook 主脚本
+├── click-quotes.json.example # 点击语录示例（可选）
 ├── scripts/
-│   └── demo-states.mjs       # 六种状态演示
+│   ├── demo-states.mjs         # 六种状态演示
+│   └── apply-click-quotes.mjs  # 可选：点击语录补丁
 └── docs/
     ├── api-overview.md       # 桌宠 HTTP 接口精简说明
-    └── status-map.md         # 事件 ↔ 动画映射表
+    ├── status-map.md         # 事件 ↔ 动画映射表
+    └── click-quotes.md       # 可选：点击语录说明
 ```
+
+---
+
+## 可选增强：点击语录（与 Hooks 无关）
+
+给 **dsh-pet 桌面宠** 加一个本地能力：点击宠物时，除播放点击动画外，再随机弹出一句语录气泡。
+
+- **不走 LLM**，**不耗 Token**，与 Cursor Hooks 状态联动无关
+- 语录文件：`~/.dsh/dsh-pet/click-quotes.json`（可随时编辑）
+- 实现方式：对本机 `node_modules/dsh-pet` 打补丁（`npm update dsh-pet` 后需重跑）
+
+在仓库根目录执行：
+
+```bash
+npm run patch:click-quotes
+# 或
+node scripts/apply-click-quotes.mjs
+```
+
+然后**重启桌面宠物**（或重启 DSH）。详见 [`docs/click-quotes.md`](docs/click-quotes.md)。
 
 ---
 

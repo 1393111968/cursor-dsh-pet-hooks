@@ -10,13 +10,16 @@
   },
   "scripts": {
     "install:hooks": "node -e \"console.log('Use install.ps1 (Windows) or install.sh (macOS/Linux)')\"",
-    "test:demo": "node scripts/demo-states.mjs"
+    "test:demo": "node scripts/demo-states.mjs",
+    "patch:click-quotes": "node scripts/apply-click-quotes.mjs",
+    "docs:rewrite": "node scripts/rewrite-docs.mjs"
   },
   "keywords": [
     "cursor",
     "hooks",
     "dsh-pet",
-    "desktop-pet"
+    "desktop-pet",
+    "click-quotes"
   ],
   "repository": {
     "type": "git",
